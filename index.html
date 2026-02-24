@@ -1,110 +1,1182 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Yuxin Liu | Data & Logistics Analytics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 | Data Analyst & Logistics Officer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  margin:0;
-  background:#f9fafb;
-  color:#111;
-}
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:60px 20px;
-}
-h1{
-  font-size:42px;
-  margin-bottom:10px;
-}
-.subtitle{
-  font-size:18px;
-  color:#555;
-  margin-bottom:30px;
-}
-.button{
-  display:inline-block;
-  padding:10px 16px;
-  background:#111;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-  margin-right:10px;
-}
-.section{
-  margin-top:50px;
-}
-.card{
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
-  margin-bottom:20px;
-}
-.small{
-  color:#666;
-  font-size:14px;
-}
-</style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --primary-lighter: #60a5fa;
+            --accent: #0f172a;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --border: #e2e8f0;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: #0f172a;
+            color: #f1f5f9;
+        }
+
+        body.dark-mode .text-gray {
+            color: #cbd5e1;
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode nav {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom-color: #334155;
+        }
+
+        nav .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        body.dark-mode nav a {
+            color: #f1f5f9;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(20deg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            display: none;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* 首页 / 简介 */
+        .intro-section {
+            display: flex;
+            align-items: center;
+            padding: 80px 2rem;
+            min-height: 100vh;
+        }
+
+        .intro-content {
+            flex: 1;
+        }
+
+        .intro-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .intro-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        body.dark-mode .intro-content h1 {
+            color: #f1f5f9;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: var(--primary-light);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .intro-desc {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        body.dark-mode .intro-desc {
+            color: #cbd5e1;
+        }
+
+        .intro-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item span:first-child {
+            font-size: 1.2rem;
+        }
+
+        .info-item span:last-child {
+            color: var(--text-gray);
+        }
+
+        body.dark-mode .info-item span:last-child {
+            color: #cbd5e1;
+        }
+
+        .intro-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.2);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* 经历部分 */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-light), transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            padding-left: 100px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border: 3px solid var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        body.dark-mode .timeline-dot {
+            background: #0f172a;
+        }
+
+        .timeline-content {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-light);
+        }
+
+        body.dark-mode .timeline-content {
+            background: #1e293b;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .timeline-title {
+            color: #f1f5f9;
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 0.8rem;
+        }
+
+        body.dark-mode .timeline-company {
+            color: #cbd5e1;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        body.dark-mode .timeline-desc {
+            color: #cbd5e1;
+        }
+
+        .timeline-desc li {
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 技能部分 */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--primary-light);
+        }
+
+        body.dark-mode .skill-group {
+            background: #1e293b;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            padding: 0.4rem 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        body.dark-mode .skill-item {
+            color: #cbd5e1;
+        }
+
+        .skill-item::before {
+            content: '▸';
+            color: var(--primary-light);
+            font-weight: bold;
+        }
+
+        /* 项目部分 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-light);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .project-card {
+            background: #1e293b;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.15);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .project-title {
+            color: #f1f5f9;
+        }
+
+        .project-tech {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        body.dark-mode .project-desc {
+            color: #cbd5e1;
+        }
+
+        .project-desc li {
+            margin-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 教育部分 */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        body.dark-mode .section-title {
+            color: #f1f5f9;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-light), transparent);
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.dark-mode .education-item {
+            border-bottom-color: #334155;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .degree {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        body.dark-mode .degree {
+            color: #f1f5f9;
+        }
+
+        .school {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-year {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        body.dark-mode .education-year {
+            color: #cbd5e1;
+        }
+
+        /* 联系部分 */
+        .contact-section {
+            text-align: center;
+            padding: 80px 2rem;
+        }
+
+        .contact-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        body.dark-mode .contact-content h2 {
+            color: #f1f5f9;
+        }
+
+        .contact-desc {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body.dark-mode .contact-desc {
+            color: #cbd5e1;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        body.dark-mode .contact-link {
+            background: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* 页脚 */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        body.dark-mode footer {
+            border-top-color: #334155;
+            color: #cbd5e1;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+            }
+
+            nav .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem 2rem;
+                background: inherit;
+                border-bottom: 1px solid var(--border);
+            }
+
+            body.dark-mode nav .nav-links.active {
+                border-bottom-color: #334155;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .intro-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .intro-avatar {
+                margin: 0 auto 1rem;
+            }
+
+            .intro-content h1 {
+                font-size: 2rem;
+            }
+
+            .job-title {
+                font-size: 1.1rem;
+            }
+
+            .intro-info {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .intro-buttons {
+                justify-content: center;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 70px;
+            }
+
+            .timeline-dot {
+                width: 30px;
+                height: 30px;
+                left: 0px;
+                font-size: 1rem;
+            }
+
+            .timeline-content {
+                padding: 1rem;
+            }
+
+            .timeline-title {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title::after {
+                display: none;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-desc {
+                max-width: 100%;
+            }
+        }
+
+        /* 隐藏/显示 */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+    </style>
 </head>
-
 <body>
-<div class="container">
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <a class="nav-logo" onclick="showSection('intro')">YN</a>
+            <div class="nav-links" id="navLinks">
+                <a onclick="showSection('intro')">简介</a>
+                <a onclick="showSection('experience')">经历</a>
+                <a onclick="showSection('projects')">项目</a>
+                <a onclick="showSection('skills')">技能</a>
+                <a onclick="showSection('contact')">联系</a>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+    </nav>
 
-<h1>Yuxin Liu</h1>
-<div class="subtitle">
-Data Analyst · Logistics Analytics · Reporting Automation
-</div>
+    <!-- 简介 -->
+    <section id="intro" class="active">
+        <div class="intro-section">
+            <div class="intro-content">
+                <div class="intro-avatar">📊</div>
+                <h1>Your Name</h1>
+                <p class="job-title">Data Analyst & Logistics Officer</p>
+                <p class="intro-desc">
+                    毕业于悉尼大学，数据科学专业，主修机器学习。
+                    具有数据分析、物流运营和财务会计背景。
+                    精通机器学习、数据可视化和业务流程优化，善于利用数据驱动的见解推动业务决策。
+                    拥有在跨国公司、初创企业和学术机构的实践经验，具有在复杂、快速变化的环境中茁壮成长的能力。
+                </p>
+                <div class="intro-info">
+                    <div class="info-item">
+                        <span>📍</span>
+                        <span>Sydney, Australia</span>
+                    </div>
+                    <div class="info-item">
+                        <span>💼</span>
+                        <span>2+ 年专业经验</span>
+                    </div>
+                    <div class="info-item">
+                        <span>🎓</span>
+                        <span>数据科学/计算机背景</span>
+                    </div>
+                </div>
+                <div class="intro-buttons">
+                    <button class="btn btn-secondary" onclick="showSection('experience')">查看经历</button>
+                    <button class="btn btn-secondary" onclick="showSection('contact')">联系我</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a class="button" href="#">Download Resume</a>
-<a class="button" href="#">LinkedIn</a>
+    <!-- 工作经历 -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">工作经历</h2>
+            <p class="section-subtitle">职业发展轨迹</p>
 
-<div class="section">
-<h2>About</h2>
-<p>
-I transform operational workflows into structured data models, automated reporting systems, 
-and clear decision-support dashboards. My experience spans logistics operations, 
-inventory control, and financial reporting automation.
-</p>
-</div>
+            <div class="timeline">
+                <!-- 工作 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">📦</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Current</div>
+                        <div class="timeline-title">Logistic Officer</div>
+                        <div class="timeline-company">Whitecliffe Imports, Sydney, Australia</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>负责公司日常物流与采购执行，包括供应商询价、货代比价、采购订单下达与跟踪，确保货物按时交付。</li>
+                                <li>管理ERP及内部系统库存与交易数据，维护库存入库、预留、销售及可用数量的准确性。</li>
+                                <li>核对到货与采购订单在产品型号、价格、数量及质量方面的一致性，确保账实相符。</li>
+                                <li>监控库存水平并识别补货需求，支持业务持续运营与库存周转管理。</li>
+                                <li>协调销售、仓库及财务部门，确保客户订单及时、准确履约。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-<div class="section">
-<h2>Projects</h2>
+                <!-- 工作 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">💼</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2025 - Aug 2025</div>
+                        <div class="timeline-title">Assistant Accountant</div>
+                        <div class="timeline-company">North Shore Accountants & Advisors Pty Ltd, Sydney, Australia</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>执行银行对账和交易编码，确保收入和支出的准确分类</li>
+                                <li>协助准备损益表 (P&L) 以支持商品及服务税 (BAS) 和税务申报</li>
+                                <li>支持根据澳大利亚税务署 (ATO) 法规准备和审查个人税务申报单 (ITR) 和公司税务申报单 (CTR)</li>
+                                <li>开发 Python 脚本，使用 FIFO 逻辑自动化资本收益/损失分析，支持多年投资报告</li>
+                                <li>深入了解商品及服务税编码、澳大利亚税务署标准和澳大利亚税务申报流程</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<strong>Inventory Reporting Automation</strong>
-<p class="small">
-Automated weekly stock reports to reduce manual processing and improve data consistency.
-</p>
-</div>
+                <!-- 工作 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">📊</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Feb 2024 - Jul 2024</div>
+                        <div class="timeline-title">Data Analyst</div>
+                        <div class="timeline-company">University of Sydney</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>负责数据收集、分析和处理，主要使用传统机器学习模型（随机森林、XGBoost、KNN、SVM）和 NLP 模型（LSTM、BERT）</li>
+                                <li>与悉尼大学公共卫生学院协作完成项目，展示在跨学科环境中的沟通和协作能力</li>
+                                <li>显著减少了需要人工筛选的文件数量，提高了工作效率</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<strong>Shipment & Revenue Forecast</strong>
-<p class="small">
-Built forecasting models aligning shipment schedules with revenue expectations.
-</p>
-</div>
+                <!-- 工作 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">🎯</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2023 - Apr 2024</div>
+                        <div class="timeline-title">Cashier / Barista</div>
+                        <div class="timeline-company">Bonbons Bakery, Sydney, Australia</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>准确处理日常现金收银台操作和财务结算，确保清晰的交易记录</li>
+                                <li>安排面包并组织展示柜以维持整洁有序的店铺展示</li>
+                                <li>与同事紧密合作，保持有效沟通以确保平稳运营</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<strong>Capital Gains FIFO Calculator</strong>
-<p class="small">
-Developed a Python-based FIFO logic tool for automated investment reporting.
-</p>
-</div>
+                <!-- 实习经验 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">🌱</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2021 - May 2022</div>
+                        <div class="timeline-title">Data Analysis Intern</div>
+                        <div class="timeline-company">Bosch Automotive Products (Suzhou) Co, Ltd., China</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>收集并整理项目数据以确保准确性和完整性</li>
+                                <li>利用 Excel 和 Tableau 进行分析和可视化，开发增强信息解读性的交互式仪表板</li>
+                                <li>参与项目团队会议，分析问题并提出解决方案</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- 项目经验 -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">项目经验</h2>
+            <p class="section-subtitle">核心项目展示</p>
 
-<div class="section">
-<h2>Skills</h2>
-<p class="small">
-Python · SQL · Excel · Power BI · Tableau · Inventory Control · Forecasting
-</p>
-</div>
+            <div class="projects-grid">
+                <!-- 项目 1 -->
+                <div class="project-card">
+                    <div class="project-title">机器学习模型开发与性能评估</div>
+                    <div class="project-tech">Machine Learning · Python</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>设计并实现了处理标记噪声数据集的机器学习模型</li>
+                            <li>利用知识蒸馏提供有效的标签噪声问题解决方案</li>
+                            <li>通过多种技术策略（包括噪声转换矩阵）增强模型对标签噪声的容错度</li>
+                        </ul>
+                    </div>
+                </div>
 
-</div>
+                <!-- 项目 2 -->
+                <div class="project-card">
+                    <div class="project-title">澳大利亚天气数据分析与预测仪表板</div>
+                    <div class="project-tech">Data Visualization · Tableau</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>分析 2007-2017 年澳大利亚各地区的历史气候数据以预测未来天气变化</li>
+                            <li>使用 Tableau 创建多个交互式仪表板（时间序列、地理分布、散点图等）</li>
+                            <li>引入主成分分析 (PCA) 技术识别影响极端天气事件的关键因素</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 3 -->
+                <div class="project-card">
+                    <div class="project-title">物理治疗证据数据库 (PEDro) 系统的机器学习自动化</div>
+                    <div class="project-tech">NLP · Python</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>使用随机森林、XGBoost、KNN、SVM 和 LSTM 等算法自动筛选物理治疗文献</li>
+                            <li>与悉尼大学肌肉骨骼健康研究所合作，大大提高了文件筛选效率</li>
+                            <li>成功开发了自动筛选的机器学习模型，减少了人工筛选的工作量</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 4 -->
+                <div class="project-card">
+                    <div class="project-title">多标签图像分类</div>
+                    <div class="project-tech">Deep Learning · PyTorch</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>选择 DINO-ViT-S/14 模型作为基础设施进行多标签分类任务的优化实验</li>
+                            <li>利用自监督学习模型处理大规模未标记数据，减少对手动标记数据的依赖</li>
+                            <li>成功优化模型性能，提高分类准确度</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 5 -->
+                <div class="project-card">
+                    <div class="project-title">销售数据分析与优化</div>
+                    <div class="project-tech">Data Processing · SQL</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>利用 SQL 分析销售趋势、库存周转率和产品性能，支持数据驱动决策</li>
+                            <li>创建 SQL 报告以识别高需求产品和季节性趋势</li>
+                            <li>减少库存不足 15%，提高库存准确度 30%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 6 -->
+                <div class="project-card">
+                    <div class="project-title">全球碳和温室气体排放数据分析可视化</div>
+                    <div class="project-tech">Data Visualization · Tableau</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>研究 1971-2022 年全球 CO2 和温室气体排放，按国家分类</li>
+                            <li>进行大数据预处理、数据挖掘和使用 Tableau 与 Python 进行数据可视化</li>
+                            <li>提供关键环境数据的清晰可视化洞察</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 7 -->
+                <div class="project-card">
+                    <div class="project-title">银行贷款违约预测</div>
+                    <div class="project-tech">Data Analysis · R</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>处理包含 307,511 条记录的高维数据集，识别潜在贷款违约者</li>
+                            <li>使用多重插补和主成分分析 (PCA) 处理缺失值并降低维度</li>
+                            <li>开发并优化了 KNN、SVM、随机森林和梯度提升模型，实现 67.2% 的灵敏度</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 8 -->
+                <div class="project-card">
+                    <div class="project-title">数据库设计与实现 (Haulers 物流公司)</div>
+                    <div class="project-tech">Database · SQL</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>为物流公司设计并实现了全面的关系数据库系统</li>
+                            <li>设计逻辑数据库模型，将数据规范化至第三范式 (3NF)</li>
+                            <li>在 Oracle RDBMS 中实现了完整的数据库架构，包括表、主外键和约束</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 9 -->
+                <div class="project-card">
+                    <div class="project-title">运营管理与优化</div>
+                    <div class="project-tech">Operations Management · Analytics</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>开发生产和库存管理模型以改进供应链效率，库存周转率提高 20%</li>
+                            <li>设计并实现了物料需求计划 (MRP) 系统，包括逻辑建模和详细生产计划</li>
+                            <li>应用分析技术优化流程，减少停机时间并改进服务流程</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 项目 10 -->
+                <div class="project-card">
+                    <div class="project-title">澳大利亚道路交通事故分析 - 项目负责人</div>
+                    <div class="project-tech">Data Analytics · Excel</div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>领导数据分析团队从澳大利亚交通数据网站捕获和管理 10,000+ 条道路交通事故数据</li>
+                            <li>使用高级 Excel 功能（数据透视表和图表）深入分析交通事故趋势和模式</li>
+                            <li>生成详细报告支持交通安全决策</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">专业技能</h2>
+            <p class="section-subtitle">核心能力与技术栈</p>
+
+            <div class="skills-container">
+                <div class="skill-group">
+                    <div class="skill-category">数据分析</div>
+                    <ul class="skill-list">
+                        <li class="skill-item">Python · Pandas · NumPy</li>
+                        <li class="skill-item">R · 统计分析</li>
+                        <li class="skill-item">SQL · 数据库</li>
+                        <li class="skill-item">Excel · 高级函数</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-category">机器学习</div>
+                    <ul class="skill-list">
+                        <li class="skill-item">Random Forest · XGBoost</li>
+                        <li class="skill-item">SVM · KNN</li>
+                        <li class="skill-item">Deep Learning · PyTorch</li>
+                        <li class="skill-item">NLP · LSTM · BERT</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-category">数据可视化</div>
+                    <ul class="skill-list">
+                        <li class="skill-item">Tableau · 仪表板设计</li>
+                        <li class="skill-item">Power BI</li>
+                        <li class="skill-item">Python 可视化库</li>
+                        <li class="skill-item">数据故事讲述</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-category">编程语言</div>
+                    <ul class="skill-list">
+                        <li class="skill-item">Python</li>
+                        <li class="skill-item">R</li>
+                        <li class="skill-item">SQL</li>
+                        <li class="skill-item">VBA / 宏</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-category">业务工具</div>
+                    <ul class="skill-list">
+                        <li class="skill-item">ERP 系统</li>
+                        <li class="skill-item">Excel (Power Query)</li>
+                        <li class="skill-item">Tableau</li>
+                        <li class="skill-item">ATO / 会计系统</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-category">核心竞争力</div>
+                    <ul class="skill-list">
+                        <li class="skill-item">数据驱动决策</li>
+                        <li class="skill-item">流程优化</li>
+                        <li class="skill-item">团队领导</li>
+                        <li class="skill-item">跨学科协作</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2>让我们保持联系</h2>
+            <p class="contact-desc">
+                如果你对我的项目或经验感兴趣，或有合作机会，欢迎通过以下方式与我联系。
+            </p>
+            
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-link">
+                    <span>📧</span> 邮箱
+                </a>
+                <a href="https://github.com" target="_blank" class="contact-link">
+                    <span>🐙</span> GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="contact-link">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://github.com" target="_blank" class="contact-link">
+                    <span>📊</span> Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2024 Your Name. 保留所有权利。</p>
+    </footer>
+
+    <script>
+        // 主题切换
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const toggle = document.querySelector('.theme-toggle');
+            toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+
+        // 菜单切换
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // 显示指定部分
+        function showSection(sectionId) {
+            // 隐藏所有部分
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // 显示选定部分
+            document.getElementById(sectionId).classList.add('active');
+            
+            // 关闭菜单
+            document.getElementById('navLinks').classList.remove('active');
+            
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 初始化主题
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+        });
+
+        // 点击外部关闭菜单
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            if (!nav.contains(e.target)) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
