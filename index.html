@@ -720,6 +720,25 @@
                 font-size: 1rem;
             }
 
+            .intern-badge {
+                display: inline-block;
+                padding: 0.25rem 0.5rem;
+                background: #cbd5e1;           /* 灰色背景 */
+                color: #475569;                /* 深灰色文字 */
+                border-radius: 4px;            /* 4px 圆角 */
+                font-size: 0.7rem;             /* 小字体 */
+                font-weight: 600;              /* 中等粗细 */
+                text-transform: uppercase;     /* 大写 */
+                letter-spacing: 0.5px;         /* 字间距 */
+                margin-left: 0.5rem;           /* 左边距 */
+                vertical-align: middle;        /* 垂直对齐 */
+            }
+            
+            body.dark-mode .intern-badge {
+                background: #475569;           /* 暗黑模式背景 */
+                color: #e2e8f0;                /* 暗黑模式文字 */
+            }
+
             .timeline-content {
                 padding: 1rem;
             }
@@ -1276,25 +1295,6 @@ I’m particularly interested in how data can bridge business processes and comm
     
         localStorage.setItem('language', lang);
     }
-        // 实习标签
-        .intern-badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            background: #cbd5e1;           /* 灰色背景 */
-            color: #475569;                /* 深灰色文字 */
-            border-radius: 4px;            /* 4px 圆角 */
-            font-size: 0.7rem;             /* 小字体 */
-            font-weight: 600;              /* 中等粗细 */
-            text-transform: uppercase;     /* 大写 */
-            letter-spacing: 0.5px;         /* 字间距 */
-            margin-left: 0.5rem;           /* 左边距 */
-            vertical-align: middle;        /* 垂直对齐 */
-        }
-        
-        body.dark-mode .intern-badge {
-            background: #475569;           /* 暗黑模式背景 */
-            color: #e2e8f0;                /* 暗黑模式文字 */
-        }
         
         // 主题切换
         function toggleTheme() {
@@ -1339,9 +1339,9 @@ I’m particularly interested in how data can bridge business processes and comm
 
         // 点击外部关闭菜单
         document.addEventListener('click', (e) => {
-            const nav = document.querySelector('nav');
-            if (!nav.contains(e.target)) {
-                document.getElementById('navLinks').classList.remove('active');
+           const savedLanguage = localStorage.getItem('language') || 'zh';
+            currentLanguage = savedLanguage;
+            switchLanguage(savedLanguage);;
             }
         });
     </script>
