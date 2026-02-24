@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历 | Data Analyst & Logistics Officer</title>
+    <title>个人简历 | Resume</title>
     <style>
         * {
             margin: 0;
@@ -38,10 +38,6 @@
         body.dark-mode {
             background: #0f172a;
             color: #f1f5f9;
-        }
-
-        body.dark-mode .text-gray {
-            color: #cbd5e1;
         }
 
         /* 导航栏 */
@@ -113,6 +109,51 @@
             width: 100%;
         }
 
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-light);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        body.dark-mode .lang-switcher {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .lang-btn.active {
+            color: white;
+            background: var(--primary);
+        }
+
+        .lang-btn:hover {
+            color: var(--primary);
+        }
+
+        body.dark-mode .lang-btn:hover {
+            color: var(--primary-light);
+        }
+
         .theme-toggle {
             background: none;
             border: none;
@@ -150,7 +191,7 @@
             display: block;
         }
 
-        /* 首页 / 简介 */
+        /* 首页 */
         .intro-section {
             display: flex;
             align-items: center;
@@ -482,7 +523,7 @@
             margin-bottom: 0.4rem;
         }
 
-        /* 教育部分 */
+        /* 部分标题 */
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -510,46 +551,6 @@
             margin-bottom: 2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .education-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        body.dark-mode .education-item {
-            border-bottom-color: #334155;
-        }
-
-        .education-item:last-child {
-            border-bottom: none;
-        }
-
-        .degree {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.3rem;
-        }
-
-        body.dark-mode .degree {
-            color: #f1f5f9;
-        }
-
-        .school {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .education-year {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-
-        body.dark-mode .education-year {
-            color: #cbd5e1;
         }
 
         /* 联系部分 */
@@ -727,7 +728,6 @@
             }
         }
 
-        /* 隐藏/显示 */
         section {
             display: none;
         }
@@ -741,15 +741,19 @@
     <!-- 导航栏 -->
     <nav>
         <div class="container">
-            <a class="nav-logo" onclick="showSection('intro')">YN</a>
+            <a class="nav-logo" onclick="showSection('intro')">HOME</a>
             <div class="nav-links" id="navLinks">
-                <a onclick="showSection('intro')">简介</a>
-                <a onclick="showSection('experience')">经历</a>
-                <a onclick="showSection('projects')">项目</a>
-                <a onclick="showSection('skills')">技能</a>
-                <a onclick="showSection('contact')">联系</a>
+                <a onclick="showSection('intro')" class="nav-text" data-zh="简介" data-en="Overview">简介</a>
+                <a onclick="showSection('experience')" class="nav-text" data-zh="经历" data-en="Experience">经历</a>
+                <a onclick="showSection('projects')" class="nav-text" data-zh="项目" data-en="Projects">项目</a>
+                <a onclick="showSection('skills')" class="nav-text" data-zh="技能" data-en="Skills">技能</a>
+                <a onclick="showSection('contact')" class="nav-text" data-zh="联系" data-en="Contact">联系</a>
             </div>
-            <div style="display: flex; gap: 1rem; align-items: center;">
+            <div class="nav-controls">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="switchLanguage('zh')">中文</button>
+                    <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+                </div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
                 <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             </div>
@@ -761,31 +765,35 @@
         <div class="intro-section">
             <div class="intro-content">
                 <div class="intro-avatar">📊</div>
-                <h1>Your Name</h1>
-                <p class="job-title">Data Analyst & Logistics Officer</p>
-                <p class="intro-desc">
-                    毕业于悉尼大学，数据科学专业，主修机器学习。
-                    具有数据分析、物流运营和财务会计背景。
-                    精通机器学习、数据可视化和业务流程优化，善于利用数据驱动的见解推动业务决策。
-                    拥有在跨国公司、初创企业和学术机构的实践经验，具有在复杂、快速变化的环境中茁壮成长的能力。
-                </p>
+                <h1>Hi, I'm Yuxin</h1>
+                <p class="job-title text-translate" data-zh="数据分析师 & 物流官员" data-en="Data Analyst & Logistics Officer">Data · Logistics · Analytics</p>
+                <p class="intro-desc text-translate" data-zh="我专注于数据、物流运营与财务分析的交叉领域。
+依托数据科学背景与实际供应链管理经验，我致力于通过结构化分析方法，将复杂的业务流程转化为清晰、可落地的决策支持体系。
+我关注数据如何连接业务流程与商业结果，推动更理性与高效的决策。" 
+                    data-en="I work at the intersection of data, logistics, and financial operations. 
+                    With a background in Data Science and hands-on experience in supply chain management, I build structured analytical tools that transform operational complexity into clear, data-driven decisions.
+I’m particularly interested in how data can bridge business processes and commercial outcomes.data-driven insights to drive strategic decisions."></p>
                 <div class="intro-info">
                     <div class="info-item">
                         <span>📍</span>
-                        <span>Sydney, Australia</span>
+                        <span class="text-translate" data-zh="Sydney, Australia" data-en="Sydney, Australia">Sydney, Australia</span>
                     </div>
                     <div class="info-item">
                         <span>💼</span>
-                        <span>2+ 年专业经验</span>
+                        <span class="text-translate" data-zh="2+ 年专业经验" data-en="2+ Years Experience">2+ 年专业经验</span>
                     </div>
                     <div class="info-item">
                         <span>🎓</span>
-                        <span>数据科学/计算机背景</span>
+                        <span class="text-translate" data-zh="数据科学硕士" data-en="Master of Data Science">数据科学背景</span>
                     </div>
                 </div>
                 <div class="intro-buttons">
-                    <button class="btn btn-secondary" onclick="showSection('experience')">查看经历</button>
-                    <button class="btn btn-secondary" onclick="showSection('contact')">联系我</button>
+                    <button class="btn btn-secondary" onclick="showSection('experience')">
+                        <span class="text-translate" data-zh="查看经历" data-en="View Experience">查看经历</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="showSection('contact')">
+                        <span class="text-translate" data-zh="联系我" data-en="Get In Touch">联系我</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -794,27 +802,84 @@
     <!-- 工作经历 -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">工作经历</h2>
-            <p class="section-subtitle">职业发展轨迹</p>
+            <h2 class="section-title">
+                <span class="text-translate" data-zh="工作经历" data-en="Work Experience">工作经历</span>
+            </h2>
+            <p class="section-subtitle text-translate" data-zh="职业发展轨迹" data-en="Professional Journey">职业发展轨迹</p>
 
             <div class="timeline">
                 <!-- 工作 1 -->
                 <div class="timeline-item">
                     <div class="timeline-dot">📦</div>
                     <div class="timeline-content">
-                        <div class="timeline-date">Current</div>
-                        <div class="timeline-title">Logistic Officer</div>
+                        <div class="timeline-date text-translate" data-zh="Current" data-en="Current">Current</div>
+                        <div class="timeline-title text-translate" data-zh="物流官员" data-en="Logistic Officer">物流官员</div>
                         <div class="timeline-company">Whitecliffe Imports, Sydney, Australia</div>
                         <div class="timeline-desc">
-                            <ul>
-                                <li>负责公司日常物流与采购执行，包括供应商询价、货代比价、采购订单下达与跟踪，确保货物按时交付。</li>
-                                <li>管理ERP及内部系统库存与交易数据，维护库存入库、预留、销售及可用数量的准确性。</li>
-                                <li>核对到货与采购订单在产品型号、价格、数量及质量方面的一致性，确保账实相符。</li>
-                                <li>监控库存水平并识别补货需求，支持业务持续运营与库存周转管理。</li>
-                                <li>协调销售、仓库及财务部门，确保客户订单及时、准确履约。</li>
-                            </ul>
-                        </div>
-                    </div>
+
+  <!-- Logistics 区块 -->
+  <div class="exp-section">
+    <div class="section-title text-translate"
+         data-zh="物流与采购"
+         data-en="Logistics & Procurement">
+      物流与采购
+    </div>
+    <ul>
+      <li class="text-translate"
+          data-zh="负责公司日常物流与采购执行，包括供应商询价、货代比价、采购订单下达与跟踪，确保货物按时交付。"
+          data-en="Coordinated day-to-day logistics and purchasing execution, including supplier quotations, forwarder comparison, and purchase order tracking to ensure on-time delivery.">
+        负责公司日常物流与采购执行，包括供应商询价、货代比价、采购订单下达与跟踪，确保货物按时交付。
+      </li>
+
+      <li class="text-translate"
+          data-zh="管理ERP及内部系统中的库存与交易数据，维护库存入库、预留、销售及可用数量的准确性。"
+          data-en="Managed inventory and transactional records across ERP and internal systems, maintaining accurate stock-in, reserved, sold, and available quantities.">
+        管理ERP及内部系统中的库存与交易数据，维护库存入库、预留、销售及可用数量的准确性。
+      </li>
+
+      <li class="text-translate"
+          data-zh="核对到货与采购订单在产品型号、价格、数量及质量方面的一致性，确保账实相符。"
+          data-en="Verified incoming shipments against purchase orders (product, price, quantity, and quality) to ensure compliance and record accuracy.">
+        核对到货与采购订单在产品型号、价格、数量及质量方面的一致性，确保账实相符。
+      </li>
+
+      <li class="text-translate"
+          data-zh="监控库存水平并识别补货需求，支持业务持续运营与库存周转管理。"
+          data-en="Monitored stock levels and identified replenishment needs to support business continuity and inventory turnover.">
+        监控库存水平并识别补货需求，支持业务持续运营与库存周转管理。
+      </li>
+    </ul>
+  </div>
+
+  <!-- Data 区块 -->
+  <div class="exp-section">
+    <div class="section-title text-translate"
+         data-zh="数据与流程优化"
+         data-en="Data & Process Optimisation">
+      数据与流程优化
+    </div>
+    <ul>
+      <li class="text-translate"
+          data-zh="利用 Power Query 搭建库存自动化报表流程，整合ERP库存、预留及在途数据，进行数据清洗、结构优化及对账校验（异常标记 TRUE/CHECK），替代人工周报流程。"
+          data-en="Developed a Power Query–based automated inventory reporting workflow by consolidating ERP exports, cleansing and transforming data, and embedding reconciliation checks with exception flags (TRUE/CHECK), replacing manual weekly reporting.">
+        利用 Power Query 搭建库存自动化报表流程，整合ERP库存、预留及在途数据，进行数据清洗、结构优化及对账校验（异常标记 TRUE/CHECK），替代人工周报流程。
+      </li>
+
+      <li class="text-translate"
+          data-zh="解决库存数据主键不唯一问题，通过产品编码层级汇总并保留卷级明细，提高库存数据准确性与可追溯性。"
+          data-en="Resolved non-unique key issues by aggregating totals at Product Code level while retaining roll-level detail to improve data accuracy and traceability.">
+        解决库存数据主键不唯一问题，通过产品编码层级汇总并保留卷级明细，提高库存数据准确性与可追溯性。
+      </li>
+
+      <li class="text-translate"
+          data-zh="开发 Excel 运费利润分析模型，对比不同货代及运输方案（海运/空运）的到岸成本与毛利影响，支持成本优化与承运商选择决策。"
+          data-en="Developed an Excel margin analysis tool to compare freight cost scenarios (air vs sea) across multiple forwarders, calculating landed cost and gross margin impact to support cost optimisation and carrier selection decisions.">
+        开发 Excel 运费利润分析模型，对比不同货代及运输方案（海运/空运）的到岸成本与毛利影响，支持成本优化与承运商选择决策。
+      </li>
+    </ul>
+  </div>
+
+</div>
                 </div>
 
                 <!-- 工作 2 -->
@@ -822,15 +887,13 @@
                     <div class="timeline-dot">💼</div>
                     <div class="timeline-content">
                         <div class="timeline-date">Mar 2025 - Aug 2025</div>
-                        <div class="timeline-title">Assistant Accountant</div>
-                        <div class="timeline-company">North Shore Accountants & Advisors Pty Ltd, Sydney, Australia</div>
+                        <div class="timeline-title text-translate" data-zh="助理会计师" data-en="Assistant Accountant">助理会计师</div>
+                        <div class="timeline-company">North Shore Accountants & Advisors Pty Ltd, Sydney</div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>执行银行对账和交易编码，确保收入和支出的准确分类</li>
-                                <li>协助准备损益表 (P&L) 以支持商品及服务税 (BAS) 和税务申报</li>
-                                <li>支持根据澳大利亚税务署 (ATO) 法规准备和审查个人税务申报单 (ITR) 和公司税务申报单 (CTR)</li>
-                                <li>开发 Python 脚本，使用 FIFO 逻辑自动化资本收益/损失分析，支持多年投资报告</li>
-                                <li>深入了解商品及服务税编码、澳大利亚税务署标准和澳大利亚税务申报流程</li>
+                                <li class="text-translate" data-zh="执行银行对账和交易编码，确保收入和支出的准确分类" data-en="Performed bank reconciliation and transaction coding with accurate classification">执行银行对账和交易编码</li>
+                                <li class="text-translate" data-zh="协助准备损益表以支持税务申报" data-en="Assisted in preparing Profit and Loss statements to support tax lodgements">协助准备损益表</li>
+                                <li class="text-translate" data-zh="开发 Python 脚本自动化资本收益/损失分析" data-en="Developed Python script to automate capital gains/loss analysis">开发自动化脚本</li>
                             </ul>
                         </div>
                     </div>
@@ -841,47 +904,13 @@
                     <div class="timeline-dot">📊</div>
                     <div class="timeline-content">
                         <div class="timeline-date">Feb 2024 - Jul 2024</div>
-                        <div class="timeline-title">Data Analyst</div>
-                        <div class="timeline-company">University of Sydney</div>
+                        <div class="timeline-title text-translate" data-zh="数据分析师" data-en="Data Analyst">数据分析师</div>
+                        <div class="timeline-company text-translate" data-zh="悉尼大学" data-en="University of Sydney">悉尼大学</div>
                         <div class="timeline-desc">
                             <ul>
-                                <li>负责数据收集、分析和处理，主要使用传统机器学习模型（随机森林、XGBoost、KNN、SVM）和 NLP 模型（LSTM、BERT）</li>
-                                <li>与悉尼大学公共卫生学院协作完成项目，展示在跨学科环境中的沟通和协作能力</li>
-                                <li>显著减少了需要人工筛选的文件数量，提高了工作效率</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 工作 4 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot">🎯</div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Mar 2023 - Apr 2024</div>
-                        <div class="timeline-title">Cashier / Barista</div>
-                        <div class="timeline-company">Bonbons Bakery, Sydney, Australia</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>准确处理日常现金收银台操作和财务结算，确保清晰的交易记录</li>
-                                <li>安排面包并组织展示柜以维持整洁有序的店铺展示</li>
-                                <li>与同事紧密合作，保持有效沟通以确保平稳运营</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 实习经验 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot">🌱</div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Nov 2021 - May 2022</div>
-                        <div class="timeline-title">Data Analysis Intern</div>
-                        <div class="timeline-company">Bosch Automotive Products (Suzhou) Co, Ltd., China</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>收集并整理项目数据以确保准确性和完整性</li>
-                                <li>利用 Excel 和 Tableau 进行分析和可视化，开发增强信息解读性的交互式仪表板</li>
-                                <li>参与项目团队会议，分析问题并提出解决方案</li>
+                                <li class="text-translate" data-zh="负责数据收集、分析和处理，使用机器学习和 NLP 模型" data-en="Responsible for data collection, analysis and processing using ML and NLP models">负责数据处理</li>
+                                <li class="text-translate" data-zh="与公共卫生学院跨学科协作" data-en="Collaborated with School of Public Health in interdisciplinary setting">跨学科协作</li>
+                                <li class="text-translate" data-zh="提高了工作效率" data-en="Improved work efficiency significantly">提高了工作效率</li>
                             </ul>
                         </div>
                     </div>
@@ -893,136 +922,86 @@
     <!-- 项目经验 -->
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">项目经验</h2>
-            <p class="section-subtitle">核心项目展示</p>
+            <h2 class="section-title">
+                <span class="text-translate" data-zh="项目经验" data-en="Project Experience">项目经验</span>
+            </h2>
+            <p class="section-subtitle text-translate" data-zh="核心项目展示" data-en="Featured Projects">核心项目展示</p>
 
             <div class="projects-grid">
                 <!-- 项目 1 -->
                 <div class="project-card">
-                    <div class="project-title">机器学习模型开发与性能评估</div>
+                    <div class="project-title text-translate" data-zh="机器学习模型开发与性能评估" data-en="Development of Robust ML Models">机器学习模型开发</div>
                     <div class="project-tech">Machine Learning · Python</div>
                     <div class="project-desc">
                         <ul>
-                            <li>设计并实现了处理标记噪声数据集的机器学习模型</li>
-                            <li>利用知识蒸馏提供有效的标签噪声问题解决方案</li>
-                            <li>通过多种技术策略（包括噪声转换矩阵）增强模型对标签噪声的容错度</li>
+                            <li class="text-translate" data-zh="设计并实现处理标记噪声数据集的机器学习模型" data-en="Designed ML models for processing datasets with labeled noise">处理标记噪声数据集</li>
+                            <li class="text-translate" data-zh="利用知识蒸馏提供有效的解决方案" data-en="Utilized Knowledge Distillation for effective solutions">知识蒸馏技术应用</li>
+                            <li class="text-translate" data-zh="增强模型的鲁棒性" data-en="Enhanced model robustness">增强模型鲁棒性</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- 项目 2 -->
                 <div class="project-card">
-                    <div class="project-title">澳大利亚天气数据分析与预测仪表板</div>
+                    <div class="project-title text-translate" data-zh="澳大利亚天气数据分析仪表板" data-en="Australian Weather Data Analysis Dashboard">天气数据分析仪表板</div>
                     <div class="project-tech">Data Visualization · Tableau</div>
                     <div class="project-desc">
                         <ul>
-                            <li>分析 2007-2017 年澳大利亚各地区的历史气候数据以预测未来天气变化</li>
-                            <li>使用 Tableau 创建多个交互式仪表板（时间序列、地理分布、散点图等）</li>
-                            <li>引入主成分分析 (PCA) 技术识别影响极端天气事件的关键因素</li>
+                            <li class="text-translate" data-zh="分析历史气候数据以预测未来天气变化" data-en="Analyzed climate data to predict future weather changes">分析气候数据</li>
+                            <li class="text-translate" data-zh="创建多个交互式仪表板" data-en="Created multiple interactive dashboards">交互式仪表板设计</li>
+                            <li class="text-translate" data-zh="使用主成分分析识别关键因素" data-en="Applied PCA to identify key factors">关键因素识别</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- 项目 3 -->
                 <div class="project-card">
-                    <div class="project-title">物理治疗证据数据库 (PEDro) 系统的机器学习自动化</div>
+                    <div class="project-title text-translate" data-zh="数据库的机器学习自动化" data-en="ML-Based Automation for Database System">数据库的机器学习自动化</div>
                     <div class="project-tech">NLP · Python</div>
                     <div class="project-desc">
                         <ul>
-                            <li>使用随机森林、XGBoost、KNN、SVM 和 LSTM 等算法自动筛选物理治疗文献</li>
-                            <li>与悉尼大学肌肉骨骼健康研究所合作，大大提高了文件筛选效率</li>
-                            <li>成功开发了自动筛选的机器学习模型，减少了人工筛选的工作量</li>
+                            <li class="text-translate" data-zh="自动筛选文献使用多个机器学习算法" data-en="Automated literature screening using ML algorithms">文献自动筛选</li>
+                            <li class="text-translate" data-zh="与大学研究所合作" data-en="Collaborated with university research institute">学术合作</li>
+                            <li class="text-translate" data-zh="提高了工作效率" data-en="Greatly improved efficiency">效率提升</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- 项目 4 -->
                 <div class="project-card">
-                    <div class="project-title">多标签图像分类</div>
+                    <div class="project-title text-translate" data-zh="多标签图像分类" data-en="Multi-Label Image Classification">多标签图像分类</div>
                     <div class="project-tech">Deep Learning · PyTorch</div>
                     <div class="project-desc">
                         <ul>
-                            <li>选择 DINO-ViT-S/14 模型作为基础设施进行多标签分类任务的优化实验</li>
-                            <li>利用自监督学习模型处理大规模未标记数据，减少对手动标记数据的依赖</li>
-                            <li>成功优化模型性能，提高分类准确度</li>
+                            <li class="text-translate" data-zh="优化多标签分类模型" data-en="Optimized multi-label classification model">模型优化</li>
+                            <li class="text-translate" data-zh="处理大规模未标记数据" data-en="Processed large-scale unlabeled data">大规模数据处理</li>
+                            <li class="text-translate" data-zh="减少人工标记依赖" data-en="Reduced manual labeling dependency">依赖性减少</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- 项目 5 -->
                 <div class="project-card">
-                    <div class="project-title">销售数据分析与优化</div>
+                    <div class="project-title text-translate" data-zh="销售数据分析与优化" data-en="Sales Data Analysis and Optimization">销售数据分析</div>
                     <div class="project-tech">Data Processing · SQL</div>
                     <div class="project-desc">
                         <ul>
-                            <li>利用 SQL 分析销售趋势、库存周转率和产品性能，支持数据驱动决策</li>
-                            <li>创建 SQL 报告以识别高需求产品和季节性趋势</li>
-                            <li>减少库存不足 15%，提高库存准确度 30%</li>
+                            <li class="text-translate" data-zh="分析销售趋势和库存周转" data-en="Analyzed sales trends and inventory turnover">销售趋势分析</li>
+                            <li class="text-translate" data-zh="识别高需求产品" data-en="Identified high-demand products">产品识别</li>
+                            <li class="text-translate" data-zh="减少库存不足 15%" data-en="Reduced stockouts by 15%">库存优化</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- 项目 6 -->
                 <div class="project-card">
-                    <div class="project-title">全球碳和温室气体排放数据分析可视化</div>
+                    <div class="project-title text-translate" data-zh="碳排放数据可视化" data-en="Carbon Emissions Data Visualization">碳排放数据可视化</div>
                     <div class="project-tech">Data Visualization · Tableau</div>
                     <div class="project-desc">
                         <ul>
-                            <li>研究 1971-2022 年全球 CO2 和温室气体排放，按国家分类</li>
-                            <li>进行大数据预处理、数据挖掘和使用 Tableau 与 Python 进行数据可视化</li>
-                            <li>提供关键环境数据的清晰可视化洞察</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 项目 7 -->
-                <div class="project-card">
-                    <div class="project-title">银行贷款违约预测</div>
-                    <div class="project-tech">Data Analysis · R</div>
-                    <div class="project-desc">
-                        <ul>
-                            <li>处理包含 307,511 条记录的高维数据集，识别潜在贷款违约者</li>
-                            <li>使用多重插补和主成分分析 (PCA) 处理缺失值并降低维度</li>
-                            <li>开发并优化了 KNN、SVM、随机森林和梯度提升模型，实现 67.2% 的灵敏度</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 项目 8 -->
-                <div class="project-card">
-                    <div class="project-title">数据库设计与实现 (Haulers 物流公司)</div>
-                    <div class="project-tech">Database · SQL</div>
-                    <div class="project-desc">
-                        <ul>
-                            <li>为物流公司设计并实现了全面的关系数据库系统</li>
-                            <li>设计逻辑数据库模型，将数据规范化至第三范式 (3NF)</li>
-                            <li>在 Oracle RDBMS 中实现了完整的数据库架构，包括表、主外键和约束</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 项目 9 -->
-                <div class="project-card">
-                    <div class="project-title">运营管理与优化</div>
-                    <div class="project-tech">Operations Management · Analytics</div>
-                    <div class="project-desc">
-                        <ul>
-                            <li>开发生产和库存管理模型以改进供应链效率，库存周转率提高 20%</li>
-                            <li>设计并实现了物料需求计划 (MRP) 系统，包括逻辑建模和详细生产计划</li>
-                            <li>应用分析技术优化流程，减少停机时间并改进服务流程</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 项目 10 -->
-                <div class="project-card">
-                    <div class="project-title">澳大利亚道路交通事故分析 - 项目负责人</div>
-                    <div class="project-tech">Data Analytics · Excel</div>
-                    <div class="project-desc">
-                        <ul>
-                            <li>领导数据分析团队从澳大利亚交通数据网站捕获和管理 10,000+ 条道路交通事故数据</li>
-                            <li>使用高级 Excel 功能（数据透视表和图表）深入分析交通事故趋势和模式</li>
-                            <li>生成详细报告支持交通安全决策</li>
+                            <li class="text-translate" data-zh="研究全球排放数据" data-en="Researched global emissions data">全球数据研究</li>
+                            <li class="text-translate" data-zh="数据预处理与可视化" data-en="Data preprocessing and visualization">数据可视化</li>
+                            <li class="text-translate" data-zh="环保数据洞察" data-en="Provided environmental data insights">洞察提供</li>
                         </ul>
                     </div>
                 </div>
@@ -1033,22 +1012,24 @@
     <!-- 技能 -->
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">专业技能</h2>
-            <p class="section-subtitle">核心能力与技术栈</p>
+            <h2 class="section-title">
+                <span class="text-translate" data-zh="专业技能" data-en="Professional Skills">专业技能</span>
+            </h2>
+            <p class="section-subtitle text-translate" data-zh="核心能力与技术栈" data-en="Core Competencies">核心能力与技术栈</p>
 
             <div class="skills-container">
                 <div class="skill-group">
-                    <div class="skill-category">数据分析</div>
+                    <div class="skill-category text-translate" data-zh="数据分析" data-en="Data Analysis">数据分析</div>
                     <ul class="skill-list">
                         <li class="skill-item">Python · Pandas · NumPy</li>
-                        <li class="skill-item">R · 统计分析</li>
-                        <li class="skill-item">SQL · 数据库</li>
-                        <li class="skill-item">Excel · 高级函数</li>
+                        <li class="skill-item">R</li>
+                        <li class="skill-item">SQL</li>
+                        <li class="skill-item">Excel</li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <div class="skill-category">机器学习</div>
+                    <div class="skill-category text-translate" data-zh="机器学习" data-en="Machine Learning">机器学习</div>
                     <ul class="skill-list">
                         <li class="skill-item">Random Forest · XGBoost</li>
                         <li class="skill-item">SVM · KNN</li>
@@ -1058,42 +1039,42 @@
                 </div>
 
                 <div class="skill-group">
-                    <div class="skill-category">数据可视化</div>
+                    <div class="skill-category text-translate" data-zh="数据可视化" data-en="Data Visualization">数据可视化</div>
                     <ul class="skill-list">
-                        <li class="skill-item">Tableau · 仪表板设计</li>
+                        <li class="skill-item">Tableau</li>
                         <li class="skill-item">Power BI</li>
-                        <li class="skill-item">Python 可视化库</li>
-                        <li class="skill-item">数据故事讲述</li>
+                        <li class="skill-item"><span class="text-translate" data-zh="Python" data-en="Python">Python</span></li>
+                        <li class="skill-item"><span class="text-translate" data-zh="可视化库" data-en="Visualization Libraries">可视化库</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <div class="skill-category">编程语言</div>
+                    <div class="skill-category text-translate" data-zh="编程语言" data-en="Programming Languages">编程语言</div>
                     <ul class="skill-list">
                         <li class="skill-item">Python</li>
                         <li class="skill-item">R</li>
                         <li class="skill-item">SQL</li>
-                        <li class="skill-item">VBA / 宏</li>
+                        <li class="skill-item">VBA</li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <div class="skill-category">业务工具</div>
+                    <div class="skill-category text-translate" data-zh="业务工具" data-en="Business Tools">业务工具</div>
                     <ul class="skill-list">
-                        <li class="skill-item">ERP 系统</li>
+                        <li class="skill-item"><span class="text-translate" data-zh="ERP 系统" data-en="ERP Systems">ERP 系统</span></li>
                         <li class="skill-item">Excel (Power Query)</li>
                         <li class="skill-item">Tableau</li>
-                        <li class="skill-item">ATO / 会计系统</li>
+                        <li class="skill-item"><span class="text-translate" data-zh="会计系统" data-en="Accounting Systems">会计系统</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <div class="skill-category">核心竞争力</div>
+                    <div class="skill-category text-translate" data-zh="核心竞争力" data-en="Core Competencies">核心竞争力</div>
                     <ul class="skill-list">
-                        <li class="skill-item">数据驱动决策</li>
-                        <li class="skill-item">流程优化</li>
-                        <li class="skill-item">团队领导</li>
-                        <li class="skill-item">跨学科协作</li>
+                        <li class="skill-item"><span class="text-translate" data-zh="数据驱动决策" data-en="Data-Driven Decision Making">数据驱动决策</span></li>
+                        <li class="skill-item"><span class="text-translate" data-zh="流程优化" data-en="Process Optimization">流程优化</span></li>
+                        <li class="skill-item"><span class="text-translate" data-zh="团队领导" data-en="Team Leadership">团队领导</span></li>
+                        <li class="skill-item"><span class="text-translate" data-zh="跨学科协作" data-en="Collaboration">跨学科协作</span></li>
                     </ul>
                 </div>
             </div>
@@ -1103,23 +1084,21 @@
     <!-- 联系 -->
     <section id="contact" class="contact-section">
         <div class="contact-content">
-            <h2>让我们保持联系</h2>
-            <p class="contact-desc">
-                如果你对我的项目或经验感兴趣，或有合作机会，欢迎通过以下方式与我联系。
-            </p>
+            <h2 class="text-translate" data-zh="让我们保持联系" data-en="Let's Connect">让我们保持联系</h2>
+            <p class="contact-desc text-translate" data-zh="如果你对我的项目或经验感兴趣，欢迎通过以下方式与我联系。" data-en="If you're interested in my work, feel free to reach out.">如果你对我的项目或经验感兴趣，欢迎联系。</p>
             
             <div class="contact-links">
                 <a href="mailto:your.email@example.com" class="contact-link">
-                    <span>📧</span> 邮箱
+                    <span>📧</span> <span class="text-translate" data-zh="邮箱" data-en="Email">邮箱</span>
                 </a>
                 <a href="https://github.com" target="_blank" class="contact-link">
-                    <span>🐙</span> GitHub
+                    <span>🐙</span> <span data-zh="GitHub" data-en="GitHub">GitHub</span>
                 </a>
                 <a href="https://linkedin.com" target="_blank" class="contact-link">
-                    <span>💼</span> LinkedIn
+                    <span>💼</span> <span data-zh="LinkedIn" data-en="LinkedIn">LinkedIn</span>
                 </a>
                 <a href="https://github.com" target="_blank" class="contact-link">
-                    <span>📊</span> Portfolio
+                    <span>📊</span> <span class="text-translate" data-zh="作品集" data-en="Portfolio">作品集</span>
                 </a>
             </div>
         </div>
@@ -1127,10 +1106,44 @@
 
     <!-- 页脚 -->
     <footer>
-        <p>© 2024 Your Name. 保留所有权利。</p>
+        <p class="text-translate" data-zh="© 2024 Your Name. 保留所有权利。" data-en="© 2024 Your Name. All rights reserved.">© 2024 Your Name. 保留所有权利。</p>
     </footer>
 
     <script>
+        let currentLanguage = 'zh';
+
+        // 切换语言
+        function switchLanguage(lang) {
+            if (currentLanguage === lang) return;
+            
+            currentLanguage = lang;
+            
+            // 更新所有带 data-zh 和 data-en 属性的元素
+            document.querySelectorAll('[data-zh][data-en], .text-translate').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+            
+            // 更新导航链接
+            document.querySelectorAll('.nav-text').forEach(link => {
+                const text = link.getAttribute(`data-${lang}`);
+                if (text) {
+                    link.textContent = text;
+                }
+            });
+            
+            // 更新语言按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // 保存语言偏好
+            localStorage.setItem('language', lang);
+        }
+
         // 主题切换
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
@@ -1146,27 +1159,29 @@
 
         // 显示指定部分
         function showSection(sectionId) {
-            // 隐藏所有部分
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // 显示选定部分
             document.getElementById(sectionId).classList.add('active');
-            
-            // 关闭菜单
             document.getElementById('navLinks').classList.remove('active');
-            
-            // 滚动到顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 初始化主题
+        // 初始化
         window.addEventListener('load', () => {
+            // 恢复主题偏好
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
                 document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+            
+            // 恢复语言偏好
+            const savedLanguage = localStorage.getItem('language') || 'zh';
+            currentLanguage = savedLanguage;
+            if (savedLanguage === 'en') {
+                switchLanguage('en');
             }
         });
 
