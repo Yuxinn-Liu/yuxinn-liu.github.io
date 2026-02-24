@@ -12,15 +12,53 @@
         }
 
         :root {
-            --primary: #1e40af;
-            --primary-light: #3b82f6;
-            --primary-lighter: #60a5fa;
-            --accent: #0f172a;
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
-            --text-gray: #64748b;
-            --border: #e2e8f0;
-            --white: #ffffff;
+          --primary: #14b8a6;         /* 主色：teal */
+          --primary-light: #2dd4bf;   /* hover/高亮 */
+          --primary-lighter: #99f6e4; /* 浅强调 */
+          --accent: #0f172a;          /* 标题深色 */
+          --bg-light: #f8fafc;        /* 卡片浅底 */
+          --text-dark: #0f172a;       /* 正文深色 */
+          --text-gray: #64748b;       /* 次级文字 */
+          --border: #e2e8f0;          /* 边框 */
+          --white: #ffffff;
+        }
+
+        /* ===== NEW INTRO LAYOUT ===== */
+
+        #intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0 2rem;
+        }
+        
+        .intro-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+        
+        .intro-left {
+            flex: 1;
+            max-width: 550px;
+        }
+        
+        .intro-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .intro-right img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
         html {
@@ -107,6 +145,10 @@
 
         nav a:hover::after {
             width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
         }
 
         .nav-controls {
@@ -303,20 +345,20 @@
         }
 
         .btn-primary:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.2);
+          background: var(--primary-light);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
         }
 
         .btn-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
+          border: 2px solid var(--primary);
+          color: var(--primary);
+          background: transparent;
         }
-
+        
         .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+          background: var(--primary);
+          color: white;
         }
 
         /* 经历部分 */
@@ -527,8 +569,8 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.15);
+          transform: translateY(-5px);
+          box-shadow: 0 18px 40px rgba(20, 184, 166, 0.18);
         }
 
         .project-title {
@@ -693,6 +735,21 @@
 
             body.dark-mode nav .nav-links.active {
                 border-bottom-color: #334155;
+            }
+            
+            .intro-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+        
+            .intro-left {
+                max-width: 100%;
+            }
+        
+            .intro-right img {
+                width: 220px;
+                height: 220px;
             }
 
             .menu-toggle {
