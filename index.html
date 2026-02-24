@@ -11,17 +11,21 @@
             box-sizing: border-box;
         }
 
-        :root {
-          --primary: #14b8a6;         /* 主色：teal */
-          --primary-light: #2dd4bf;   /* hover/高亮 */
-          --primary-lighter: #99f6e4; /* 浅强调 */
-          --accent: #0f172a;          /* 标题深色 */
-          --bg-light: #f8fafc;        /* 卡片浅底 */
-          --text-dark: #0f172a;       /* 正文深色 */
-          --text-gray: #64748b;       /* 次级文字 */
-          --border: #e2e8f0;          /* 边框 */
-          --white: #ffffff;
+        :root{
+          --primary:#5F8D83;
+          --primary-light:#7DA89E;
+          --primary-lighter:#C8D6D1;
+        
+          --accent:#1F2A28;
+          --bg-light:#F7F6F2;
+          --text-dark:#1F2A28;
+          --text-gray:#6B7280;
+          --border:#E7E4DC;
+          --white:#ffffff;
+        
+          --shadow-soft:0 18px 45px rgba(0,0,0,0.05);
         }
+
 
         /* ===== NEW INTRO LAYOUT ===== */
 
@@ -69,13 +73,30 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: var(--white);
+            background: #F5F3EE;
             transition: all 0.3s ease;
         }
 
         body.dark-mode {
             background: #0f172a;
             color: #f1f5f9;
+        }
+
+        /* 竖向半身照 */
+        .portrait-frame{
+          width:360px;
+          height:480px;
+          border-radius:30px;
+          overflow:hidden;
+          border:1px solid var(--border);
+          box-shadow:0 30px 60px rgba(0,0,0,0.08);
+        }
+        
+        .portrait-frame img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          object-position:center 20%;
         }
 
         /* 导航栏 */
@@ -859,43 +880,62 @@
     </nav>
 
     <!-- 简介 -->
-    <section id="intro" class="active">
-        <div class="intro-section">
+           <!-- 简介 -->
+        <section id="intro" class="active">
+          <div class="intro-section">
+        
+            <!-- 左侧：你原来的内容，完全不动 -->
             <div class="intro-content">
-                <div class="intro-avatar">📊</div>
-                <h1>Hi, I'm Yuxin</h1>
-                <p class="job-title text-translate" data-zh="数据分析师 & 物流官员" 
-                    data-en="Data Analyst & Logistics Officer">Data · Logistics · Analytics</p>
-                <p class="intro-desc text-translate" data-zh="我专注于数据、物流运营与财务分析的交叉领域。依托数据科学背景与实际供应链管理经验，我致力于通过结构化分析方法，将复杂的业务流程转化为清晰、可落地的决策支持体系。
-我关注数据如何连接业务流程与商业结果，推动更理性与高效的决策。" 
-                    data-en="I work at the intersection of data, logistics, and financial operations. 
-                    With a background in Data Science and hands-on experience in supply chain management, I build structured analytical tools that transform operational complexity into clear, data-driven decisions.
-I’m particularly interested in how data can bridge business processes and commercial outcomes.data-driven insights to drive strategic decisions."></p>
-                <div class="intro-info">
-                    <div class="info-item">
-                        <span>📍</span>
-                        <span class="text-translate" data-zh="Sydney, Australia" data-en="Sydney, Australia">Sydney, Australia</span>
-                    </div>
-                    <div class="info-item">
-                        <span>💼</span>
-                        <span class="text-translate" data-zh="2+ 年专业经验" data-en="2+ Years Experience">2+ 年专业经验</span>
-                    </div>
-                    <div class="info-item">
-                        <span>🎓</span>
-                        <span class="text-translate" data-zh="数据科学硕士" data-en="Master of Data Science">数据科学背景</span>
-                    </div>
+              <div class="intro-avatar">📊</div>
+              <h1>Hi, I'm Yuxin</h1>
+        
+              <p class="job-title text-translate" data-zh="数据分析师 & 物流官员" 
+                 data-en="Data Analyst & Logistics Officer">
+                Data · Logistics · Analytics
+              </p>
+        
+              <p class="intro-desc text-translate"
+                 data-zh="我专注于数据、物流运营与财务分析的交叉领域。依托数据科学背景与实际供应链管理经验，我致力于通过结构化分析方法，将复杂的业务流程转化为清晰、可落地的决策支持体系。
+        我关注数据如何连接业务流程与商业结果，推动更理性与高效的决策。"
+                 data-en="I work at the intersection of data, logistics, and financial operations. 
+        With a background in Data Science and hands-on experience in supply chain management, I build structured analytical tools that transform operational complexity into clear, data-driven decisions.
+        I’m particularly interested in how data can bridge business processes and commercial outcomes.">
+              </p>
+        
+              <div class="intro-info">
+                <div class="info-item">
+                  <span>📍</span>
+                  <span class="text-translate" data-zh="Sydney, Australia" data-en="Sydney, Australia">Sydney, Australia</span>
                 </div>
-                <div class="intro-buttons">
-                    <button class="btn btn-secondary" onclick="showSection('experience')">
-                        <span class="text-translate" data-zh="查看经历" data-en="View Experience">查看经历</span>
-                    </button>
-                    <button class="btn btn-secondary" onclick="showSection('contact')">
-                        <span class="text-translate" data-zh="联系我" data-en="Get In Touch">联系我</span>
-                    </button>
+                <div class="info-item">
+                  <span>💼</span>
+                  <span class="text-translate" data-zh="2+ 年专业经验" data-en="2+ Years Experience">2+ 年专业经验</span>
                 </div>
+                <div class="info-item">
+                  <span>🎓</span>
+                  <span class="text-translate" data-zh="数据科学硕士" data-en="Master of Data Science">数据科学背景</span>
+                </div>
+              </div>
+        
+              <div class="intro-buttons">
+                <button class="btn btn-secondary" onclick="showSection('experience')">
+                  <span class="text-translate" data-zh="查看经历" data-en="View Experience">查看经历</span>
+                </button>
+                <button class="btn btn-secondary" onclick="showSection('contact')">
+                  <span class="text-translate" data-zh="联系我" data-en="Get In Touch">联系我</span>
+                </button>
+              </div>
             </div>
-        </div>
-    </section>
+        
+            <!-- 右侧：竖向半身照 -->
+            <div class="intro-right">
+              <div class="portrait-frame">
+                <img src="portrait.jpg" alt="Yuxin portrait">
+              </div>
+            </div>
+        
+          </div>
+        </section>
 
     <!-- 工作经历 -->
     <section id="experience">
