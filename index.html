@@ -387,10 +387,10 @@
 
   /* ===== Skills ===== */
   .skills-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-    gap:2rem;
-  }
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:2rem;
+    }
 
   .skill-group{
     background:var(--bg-light);
@@ -738,7 +738,9 @@
     .section-title{ font-size:1.5rem; }
     .section-title::after{ display:none; }
 
-    .skills-container{ grid-template-columns:1fr; }
+    .skills-container{
+    grid-template-columns:1fr; /* 手机端改成 1 列 */
+  }
     .projects-grid{ grid-template-columns:1fr; }
     .academic-skills{ grid-template-columns:1fr; }
   }
