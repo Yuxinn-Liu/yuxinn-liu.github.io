@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  (function() {
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    document.documentElement.setAttribute('lang', savedLanguage);
+    window.INITIAL_LANGUAGE = savedLanguage;
+  })();
+</script>
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -761,8 +769,8 @@
             </div>
             <div class="nav-controls">
                 <div class="lang-switcher">
-                  <button class="lang-btn active" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
-                  <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                  <button class="lang-btn" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+                  <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
                 </div>
                 <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
                 <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -962,7 +970,7 @@
                     <div class="timeline-content">
                         <span class="intern-badge" data-zh="实习" data-en="INTERN">INTERN</span>
                         <div class="timeline-date">Nov 2021 - May 2022</div>
-                        <div class="timeline-title text-translate" data-zh="数据分析实习生" data-en="Data Analysis Intern">Data Analysis Intern</div>
+                        <div class="timeline-title text-translate" data-zh="数据分析" data-en="Data Analyst">Data Analyst</div>
                         <div class="timeline-company text-translate" data-zh="博世，苏州" data-en="Bosch, Suzhou">Bosch, Suzhou</div>
                         <div class="timeline-desc">
                             <ul>
@@ -1525,9 +1533,8 @@
         document.querySelector('.theme-toggle').textContent = '☀️';
       }
 
-      // 语言恢复：默认中文
-      const savedLanguage = localStorage.getItem('language') || 'zh';
-      switchLanguage(savedLanguage);
+      // 直接用已经设定好的语言
+      switchLanguage(currentLanguage));
     });
 
     // 点击外部关闭菜单
