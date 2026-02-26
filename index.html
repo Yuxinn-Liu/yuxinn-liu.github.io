@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
+    
+<head>
+  <script>
   (function() {
     const savedLanguage = localStorage.getItem('language') || 'en';
     document.documentElement.setAttribute('lang', savedLanguage);
     window.INITIAL_LANGUAGE = savedLanguage;
   })();
 </script>
-    
-<head>
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuxin | Data Analyst & Logistics</title>
@@ -1486,10 +1487,33 @@
     </footer>
 
   <script>
-    let currentLanguage = 'zh';
+    let currentLanguage = window.INITIAL_LANGUAGE || 'en';
+
+    // ✅ 添加缓存
+    let translationElements = null;
 
     function switchLanguage(lang) {
+      if (currentLanguage === lang) return;
+      
       currentLanguage = lang;
+    
+      requestAnimationFrame(() => {
+        if (!translationElements) {
+          translationElements = document.querySelectorAll('[data-zh][data-en]');
+        }
+        
+        translationElements.forEach(el => {
+          const text = el.getAttribute(`data-${lang}`);
+          if (text !== null) el.textContent = text;
+        });
+    
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+      });
+    
+      localStorage.setItem('language', lang);
+    }
 
       // 更新所有有 data-zh / data-en 的元素
       document.querySelectorAll('[data-zh][data-en]').forEach(el => {
@@ -1534,7 +1558,7 @@
       }
 
       // 直接用已经设定好的语言
-      switchLanguage(currentLanguage));
+      switchLanguage(currentLanguage);
     });
 
     // 点击外部关闭菜单
