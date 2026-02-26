@@ -1487,10 +1487,7 @@
     </footer>
 
     <script>
-      // 从 head 里注入的 INITIAL_LANGUAGE 读取
       let currentLanguage = window.INITIAL_LANGUAGE || 'en';
-    
-      // 缓存翻译元素，避免每次 querySelectorAll
       let translationElements = null;
     
       function applyLanguage(lang) {
@@ -1512,10 +1509,8 @@
     
       function switchLanguage(lang) {
         if (currentLanguage === lang) return;
-    
         currentLanguage = lang;
     
-        // 用 requestAnimationFrame 让 DOM 更新更顺滑
         requestAnimationFrame(() => {
           applyLanguage(lang);
           localStorage.setItem('language', lang);
@@ -1533,7 +1528,8 @@
       }
     
       function toggleMenu() {
-        document.getElementById('navLinks')?.classList.toggle('active');
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) navLinks.classList.toggle('active');
       }
     
       function showSection(sectionId) {
@@ -1542,14 +1538,14 @@
         const target = document.getElementById(sectionId);
         if (target) target.classList.add('active');
     
-        document.getElementById('navLinks')?.classList.remove('active');
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) navLinks.classList.remove('active');
     
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     
-      // 初始化
       window.addEventListener('load', () => {
-        // 主题恢复
+        // theme restore
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
           document.body.classList.add('dark-mode');
@@ -1557,17 +1553,23 @@
           if (toggle) toggle.textContent = '☀️';
         }
     
-        // 语言恢复（你 head 里已经决定了 INITIAL_LANGUAGE）
+        // language apply
         applyLanguage(currentLanguage);
       });
     
-      // 点击外部关闭菜单
       document.addEventListener('click', (e) => {
         const nav = document.querySelector('nav');
         if (nav && !nav.contains(e.target)) {
-          document.getElementById('navLinks')?.classList.remove('active');
+          const navLinks = document.getElementById('navLinks');
+          if (navLinks) navLinks.classList.remove('active');
         }
       });
+    
+      // ✅ 关键：挂到 window，保证 onclick 找得到
+      window.switchLanguage = switchLanguage;
+      window.toggleTheme = toggleTheme;
+      window.toggleMenu = toggleMenu;
+      window.showSection = showSection;
     </script>
     
 </body>
